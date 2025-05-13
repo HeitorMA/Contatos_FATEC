@@ -1,0 +1,20 @@
+{
+  "contatos": [
+    {
+      "id": 1,
+      "nome": "teste",
+      "telefone": 12345678,
+      "email": "teste@gmail.com",
+      "tipo": "Pessoal",
+      "genero": "Feminino"
+    },
+    {
+      "id": 2,
+      "nome": "teste",
+      "telefone": 12345678,
+      "email": "teste@gmail.com",
+      "tipo": "Família",
+      "genero": "Masculino"
+    }
+  ]
+}

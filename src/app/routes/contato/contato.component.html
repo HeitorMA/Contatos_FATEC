@@ -1,0 +1,141 @@
+<div
+  class="d-flex flex-column justify-content-center bg-body-secondary p-4 align-items-center"
+>
+  <h1>Criar Contato</h1>
+  <div class="col-md-8">
+    <form [formGroup]="formGroupContato">
+      <!--Nome-->
+      <div class="mb-3">
+        <label for="inputNome" class="form-label">Nome</label>
+        <input
+          formControlName="nome"
+          type="text"
+          class="form-control"
+          id="inputNome"
+          requird
+          placeholder="name@example.com"
+        />
+      </div>
+      <!--Telefone-->
+      <div class="mb-3">
+        <label for="inputTelefone" class="form-label">Telefone</label>
+        <input
+          formControlName="telefone"
+          type="number"
+          class="form-control"
+          id="inputTelefone"
+          required
+          placeholder="name@example.com"
+        />
+      </div>
+      <!--Email-->
+      <div class="mb-3">
+        <label for="inputEmail" class="form-label">Endereço de Email</label>
+        <input
+          formControlName="email"
+          type="email"
+          class="form-control"
+          id="inputEmail"
+          placeholder="name@example.com"
+        />
+      </div>
+      <!--Tipo-->
+      <div class="mb-3">
+        <label for="inputTipo" class="form-label">Tipo</label>
+        <select  formControlName="tipo" class="form-select" id="inputTipo">
+          <option value="">Selecione o tipo</option>
+          <option value="Pessoal">Pessoal</option>
+          <option value="Trabalho">Trabalho</option>
+          <option value="Família">Família</option>
+          <option value="Outro">Outro</option>
+        </select>
+      </div>
+
+      <!--Genero-->
+      <div class="mb-3 d-flex flex-column gap-2">
+        <label class="form-label">Gênero</label>
+        <div class="d-flex gap-2">
+          <input
+            formControlName="genero"
+            type="radio"
+            id="generoFeminino"
+            value="Feminino"
+          />
+          <label for="generoFeminino" class="form-label">Feminino</label>
+        </div>
+
+        <div class="d-flex gap-2">
+          <input
+            formControlName="genero"
+            type="radio"
+            id="generoMasculino"
+            value="Masculino"
+          />
+          <label for="generoMasculino" class="form-label">Masculino</label>
+        </div>
+      </div>
+
+      <!--Botoes-->
+      <div class="d-flex gap-1">
+        <button
+          (click)="onClickSave()"
+          *ngIf="!isEditing"
+          type="submit"
+          class="btn btn-primary"
+        >
+          Salvar
+        </button>
+        <button
+          (click)="onConfirmUpdate()"
+          *ngIf="isEditing"
+          type="submit"
+          class="btn btn-secondary"
+        >
+          Alterar
+        </button>
+        <button (click)="clear()" type="submit" class="btn btn-secondary">
+          Cancelar
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+<hr />
+<div
+  class="d-flex flex-column justify-content-center bg-body-secondary p-4 align-items-center"
+>
+  <h1>Lista de Contatos</h1>
+  <div class="col-md-8">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nome</th>
+          <th scope="col">Telefone</th>
+          <th scope="col">Email</th>
+          <th scope="col">Tipo</th>
+          <th scope="col">Genero</th>
+          <th scope="col">Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let c of contatos">
+          <th scope="row">{{ c.id }}</th>
+          <td>{{ c.nome }}</td>
+          <td>{{ c.telefone }}</td>
+          <td>{{ c.email }}</td>
+          <td>{{ c.tipo }}</td>
+          <td>{{ c.genero }}</td>
+          <td class="d-flex gap-2">
+            <button class="btn btn-primary" (click)="onClickUpdate(c)">
+              Editar
+            </button>
+            <button class="btn btn-danger" (click)="onClickDelete(c)">
+              Excluir
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
