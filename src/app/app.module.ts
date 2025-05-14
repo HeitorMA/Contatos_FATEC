@@ -9,6 +9,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ContatoComponent } from './routes/contato/contato.component';
 import { provideHttpClient } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SobreComponent } from './routes/sobre/sobre.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     NavbarComponent,
     ContatoComponent,
     HomeComponent,
-    FooterComponent
+    FooterComponent,
+    SobreComponent
   ],
   imports: [
     BrowserModule,
